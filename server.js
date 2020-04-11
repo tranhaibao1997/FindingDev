@@ -8,8 +8,6 @@ const path = require('path')
 connectDB()
 
 
-const PORT = process.env.PORT || 5000
-
 //make body into json -> can get data from body
 app.use(express.json({ createIndexes: true }))
 
@@ -28,5 +26,5 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
-
+const PORT = process.env.PORT || 5000
 app.listen(PORT, () => { console.log("Server is running at" + PORT) })
