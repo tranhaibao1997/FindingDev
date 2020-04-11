@@ -11,10 +11,10 @@ connectDB()
 //make body into json -> can get data from body
 app.use(express.json({ createIndexes: true }))
 
-app.use("/api/users", require("../DevConnect/routers/api/users"))
-app.use("/api/auth", require("../DevConnect/routers/api/auth"))
-app.use("/api/profile", require("../DevConnect/routers/api/profile"))
-app.use("/api/posts", require("../DevConnect/routers/api/posts"))
+app.use("/api/users", require("./routers/api/users"))
+app.use("/api/auth", require("./routers/api/auth"))
+app.use("/api/profile", require("./routers/api/profile"))
+app.use("/api/posts", require("./routers/api/posts"))
 
 
 //server static assets in production
