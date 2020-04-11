@@ -1,0 +1,4 @@
+{
+    "mongoURL": "mongodb+srv://haibaotran:haibaotran@cluster0-3lufe.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtSecret": "haibao1997"
+}
