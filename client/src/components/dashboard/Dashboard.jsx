@@ -4,6 +4,8 @@ import { getCurrentProfile } from "../../actions/profile"
 import Spinner from '../layout/Spinner';
 import {Link} from 'react-router-dom'
 import DashboardAction from './DashboardAction'
+import Experience from './Experience';
+import Education from './Education';
 
 const Dashboard = ({ getCurrentProfile, auth:{user}, profile: { profile, loading } }) => {
     useEffect(() => {
@@ -12,6 +14,7 @@ const Dashboard = ({ getCurrentProfile, auth:{user}, profile: { profile, loading
     if (loading && profile === null) {
         return (
             <Spinner></Spinner>
+
         )
     }
     else
@@ -21,7 +24,10 @@ const Dashboard = ({ getCurrentProfile, auth:{user}, profile: { profile, loading
                 <p className="lead">
                     <i className="fas fa-user"></i>Welcome {user && user.name}
                 </p>
-                {profile !==null ?<Fragment><DashboardAction></DashboardAction></Fragment> :<Fragment><p>You dont have profile, please create one :D</p>
+                {profile !==null ?<Fragment><DashboardAction></DashboardAction>
+                <Experience ></Experience>
+                <Education></Education>
+                </Fragment> :<Fragment><p>You dont have profile, please create one :D</p>
                 <Link to="/create-profile" className="btn btn-primary my-1">Create Profile</Link>
                 </Fragment>}
             </Fragment>

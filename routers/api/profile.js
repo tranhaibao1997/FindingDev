@@ -151,7 +151,7 @@ router.put("/experience", [auth, [
         const profile = await Profile.findOne({ user: req.user.id })
         profile.experience.push(experience)
         await profile.save()
-        res.send(profile)
+        res.json(profile)
     } catch (err) {
         res.status(200).send({ err: err.message })
     }
@@ -161,13 +161,13 @@ router.put("/experience", [auth, [
 //delete profile experience
 router.delete("/experience/:id", auth, async(req, res) => {
     try {
-        const profile = await Profile.findOne({ user: req.use.id });
+        const profile = await Profile.findOne({ user: req.user.id });
 
         //get remove index
         const removeIndex = profile.experience.map(item => item.id).indexOf(req.params.id);
         profile.experience.splice(removeIndex, 1)
         await profile.save();
-        res.json(profile)
+        res.send(profile)
     } catch (err) {
         res.status(200).send(err)
     }
@@ -205,7 +205,7 @@ router.put("/education", [auth, [
         const profile = await Profile.findOne({ user: req.user.id })
         profile.education.push(education)
         await profile.save()
-        res.send(profile)
+        res.json(profile)
     } catch (err) {
         res.status(200).send({ err: err.message })
     }
@@ -215,7 +215,7 @@ router.put("/education", [auth, [
 //delete profile education
 router.delete("/education/:id", auth, async(req, res) => {
     try {
-        const profile = await Profile.findOne({ user: req.use.id });
+        const profile = await Profile.findOne({ user: req.user.id });
 
         //get remove index
         const removeIndex = profile.education.map(item => item.id).indexOf(req.params.id);
