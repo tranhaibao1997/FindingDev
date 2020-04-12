@@ -10,7 +10,7 @@ import Education from './Education';
 const Dashboard = ({ getCurrentProfile, auth:{user}, profile: { profile, loading } }) => {
     useEffect(() => {
         getCurrentProfile()
-    }, [])
+    }, [getCurrentProfile])
     if (loading && profile === null) {
         return (
             <Spinner></Spinner>

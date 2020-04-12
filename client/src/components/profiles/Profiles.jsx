@@ -8,9 +8,9 @@ const Profiles = ({ profile: { profiles, loading }, getAllProfiles }) => {
 
     useEffect(() => {
         getAllProfiles()
-    }, [])
+    }, [getAllProfiles])
 
-return <Fragment>{loading ?<Spinner></Spinner> :<Fragment>
+return <Fragment>{loading || profiles===null ? <Spinner></Spinner> :<Fragment>
     <h1 className="large text-primary">Developers</h1>
     <p className="lead">
         <i className="fab fa-connectdevelop"></i>Find and connect with developers

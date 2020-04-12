@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Moment from 'react-moment'
 import { deleteExperience } from '../../actions/profile'
-import axios from 'axios'
+
 
 
 function Experience({ profile: { profile } ,deleteExperience}) {

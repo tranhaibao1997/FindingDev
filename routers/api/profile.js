@@ -91,11 +91,11 @@ router.get("/", async(req, res) => {
 router.get("/user/:id", async(req, res) => {
     try {
         const _id = req.params.id
-        const profile = await Profile.find({ user: _id }).populate("user", ["name", "avatar"])
+        const profile = await Profile.findOne({ user: _id }).populate("user", ["name", "avatar"])
         if (!profile) {
             return res.status(500).send("this user id doesnt exist")
         }
-        res.send(profile)
+        res.json(profile)
     } catch (err) {
         res.status(200).send({ err: err.message })
     }

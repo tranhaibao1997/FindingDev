@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Moment from 'react-moment'
-import {deleteEducation} from "../../actions/profile"
+import { deleteEducation } from "../../actions/profile"
 
 
-function Education({ profile: { profile },deleteEducation }) {
+function Education({ profile: { profile }, deleteEducation }) {
 
-    const deleteEdu=(id)=>{
-deleteEducation(id)
+    const deleteEdu = (id) => {
+        deleteEducation(id)
     }
     return (
         <>
@@ -35,7 +35,7 @@ deleteEducation(id)
                                     )}
                                 </td>
                                 <td>
-                                    <button className="btn btn-danger" onClick={e=>deleteEdu(exp._id)}>Delete</button>
+                                    <button className="btn btn-danger" onClick={e => deleteEdu(exp._id)}>Delete</button>
                                 </td>
 
 
@@ -54,4 +54,4 @@ deleteEducation(id)
 const mapStateToProps = state => ({
     profile: state.profile
 })
-export default connect(mapStateToProps, {deleteEducation})(Education);
+export default connect(mapStateToProps, { deleteEducation })(Education);
