@@ -13,7 +13,7 @@ const ProfileDetail = ({ match, getProfileById, profile: { profile, loading }, a
     return <Fragment>{loading || profile === null ? <Spinner></Spinner> : <Fragment>
         <section className="container">
             <Link to="/profiles" className="btn btn-light">Back To Profiles</Link>
-            {/* {auth.isAuthenticated && auth.loading === false && auth.user._id === profile.user._id ? <Link to="/edit-profile" className="btn btn-dark"></Link> : {}} */}
+            {auth.isAuthenticated && auth.loading === false && auth.user._id === profile.user._id &&( <Link to="/edit-profile" className="btn btn-dark">Edit Profile</Link>)}
 
             <div className="profile-grid my-1">
                 {/* Top */}
@@ -25,18 +25,18 @@ const ProfileDetail = ({ match, getProfileById, profile: { profile, loading }, a
                     <div className="icons my-1">
                         {profile.website ? <a href={profile.website} target="_blank" rel="noopener noreferrer"> <i className="fas fa-globe fa-2x" /> </a> : ""}
 
-                        {profile.twitter ? <a href={profile.twitter} target="_blank" rel="noopener noreferrer">
+                        {profile.social.twitter ? <a href={profile.social.twitter} target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-twitter fa-2x" /></a> : ""}
-                        {profile.facebook ? <a href={profile.facebook} target="_blank" rel="noopener noreferrer">
+                        {profile.social.facebook ? <a href={profile.social.facebook} target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-facebook fa-2x" />
                         </a> : ""}
-                        {profile.linkedin ? <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
+                        {profile.social.linkedin ? <a href={profile.social.linkedin} target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-linkedin fa-2x" />
                         </a> : ""}
-                        {profile.youtube ? <a href={profile.youtube} target="_blank" rel="noopener noreferrer">
+                        {profile.social.youtube ? <a href={profile.social.youtube} target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-youtube fa-2x" />
                         </a> : ""}
-                        {profile.instagram ? <a href={profile.instagram} target="_blank" rel="noopener noreferrer">
+                        {profile.social.instagram ? <a href={profile.social.instagram} target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-instagram fa-2x" />
                         </a> : ""}
                     </div>
