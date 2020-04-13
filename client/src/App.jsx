@@ -13,6 +13,7 @@ import EditProfile from './components/profile-forms/EditProfile'
 import AddExperience from './components/profile-forms/AddExperience'
 import AddEducation from './components/profile-forms/AddEducation'
 import Profiles from './components/profiles/Profiles'
+import Posts from './components/posts/Posts'
 //Redux
 import { Provider } from 'react-redux';
 import store from '../src/store';
@@ -40,11 +41,12 @@ const App = () => {
                 <NavBar></NavBar>
                 
                
-                    <Alert></Alert>
+                  
                     <Switch>
+                        
                     <Route exact path="/" component={Landing}></Route>
                     <section className="container">
-                        
+                    <Alert></Alert>
                         <Route exact path="/profiles" component={Profiles}></Route>
                         <Route exact path="/register" component={Register}></Route>
                         <Route exact path="/profile/:id" component={ProfileDetails}></Route>
@@ -54,7 +56,7 @@ const App = () => {
                         <PrivateRoute exact path="/edit-profile" component={EditProfile}></PrivateRoute>
                         <PrivateRoute exact path="/add-experience" component={AddExperience}></PrivateRoute>
                         <PrivateRoute exact path="/add-education" component={AddEducation}></PrivateRoute>
-
+                        <PrivateRoute exact path="/posts" component={Posts}></PrivateRoute>
                       </section>  
                     </Switch>
                 
